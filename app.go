@@ -53,11 +53,11 @@ func (app *KVStoreApplication) InitChain(chain abcitypes.RequestInitChain) abcit
 }
 
 func (app *KVStoreApplication) PrepareProposal(proposal abcitypes.RequestPrepareProposal) abcitypes.ResponsePrepareProposal {
-	return abcitypes.ResponsePrepareProposal{}
+	return abcitypes.ResponsePrepareProposal{Txs: proposal.Txs}
 }
 
 func (app *KVStoreApplication) ProcessProposal(proposal abcitypes.RequestProcessProposal) abcitypes.ResponseProcessProposal {
-	return abcitypes.ResponseProcessProposal{}
+	return abcitypes.ResponseProcessProposal{Status: abcitypes.ResponseProcessProposal_ACCEPT}
 }
 
 func (app *KVStoreApplication) BeginBlock(req abcitypes.RequestBeginBlock) abcitypes.ResponseBeginBlock {
